@@ -13,4 +13,4 @@ To get started:
 
 Now, you can authorize access to the WSFederation page via Profiles or Permsets and it will speak WSFed Passive profile
 
-Consult this wiki for example intructions with Sharepoint: 
+Consult this wiki for example intructions with Sharepoint: [https://developer.salesforce.com/page/Configuring-SSO-to-SharePoint]
