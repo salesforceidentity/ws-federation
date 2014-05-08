@@ -1,0 +1,16 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="WSFederationController">
+<html lang="en">
+    <head></head>
+    <apex:outputPanel rendered="{!errorMessage != null}">{!errorMessage}</apex:outputPanel>
+    <apex:outputPanel rendered="{!errorMessage == null}">
+        <body onload="document.forms[0].submit();">
+            <form action="{!action}" method="POST">
+                <input type="hidden" name="wa" value="wsignin1.0" /><br/>
+                <input type="hidden" name="wctx" value="{!context}" /><br/>
+                <input type="hidden" name="wresult" value="{!result}" /><br/>
+            </form>
+        </body>   
+     </apex:outputPanel>   
+
+</html>
+</apex:page>

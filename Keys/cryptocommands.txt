@@ -1,0 +1,6 @@
+keytool -keysize 2048 -genkey -alias wsfed -keyalg RSA -keystore ./wsfed.jks  -validity 3650
+keytool -importkeystore -srckeystore wsfed.jks -destkeystore wsfed.p12 -deststoretype PKCS12
+openssl pkcs12 -in wsfed.p12 -out key.pem -nocerts -nodes
+keytool -export -alias wsfed -file wsfed.crt -keystore wsfed.jks -rfc
+java -cp ./classes GetModulusAndExponent ./wsfed.jks <your password> wsfed <your password> 
+

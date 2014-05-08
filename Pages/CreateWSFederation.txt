@@ -1,0 +1,18 @@
+<apex:page controller="CreateWSFederationController" sidebar="false">
+    <h1>Create Realm</h1>
+    <apex:messages />
+    <apex:pageBlock >
+        <apex:form forceSSL="true">
+            <apex:inputText value="{!realm.Name}" html-placeholder="Name" required="true" size="100"/><br/><br/>
+            <apex:inputText value="{!realm.Realm__c}" html-placeholder="Realm" required="true" size="100"/><br/><br/>
+            <apex:inputText value="{!realm.Action__c}" html-placeholder="Action" required="true" size="100"/><br/><br/>
+            <apex:inputText value="{!realm.Issuer__c}" html-placeholder="Issuer" required="true" size="100"/><br/><br/>
+            <apex:inputTextarea value="{!realm.EncodedPrivateKey__c}" html-placeholder="EncodedPrivateKey" required="true" cols="100"/><br/><br/>
+            <apex:inputTextarea value="{!realm.Certificate__c}" html-placeholder="Certificate" required="true"  cols="100"/><br/><br/>
+            <apex:inputTextarea value="{!realm.Modulus__c}" html-placeholder="Modulus" required="true"  cols="100"/><br/><br/>
+            <apex:inputText value="{!realm.Exponent__c}" html-placeholder="Exponent" required="true" size="100"/><br/><br/>
+            <apex:commandButton action="{!save}" value="save" id="theButton"/>
+            <a href="/apex/WSFederationManagement">cancel</a>
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

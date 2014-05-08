@@ -1,0 +1,42 @@
+public with sharing class WSFederationManagementController {
+    
+    public List<WS_Federation_Realm__c> configs {get;set;}
+    public string SelectedConfigId { get; set; }
+
+
+    public WSFederationManagementController() {
+         LoadConfigs(); 
+    }
+    
+    
+   private void LoadConfigs() {
+       configs =  [select name, Realm__c, Action__c, Issuer__c, EncodedPrivateKey__c, Certificate__c, Modulus__c, Exponent__c from WS_Federation_Realm__c];
+   }
+  
+   public void DeleteConfig()
+   {
+      // if for any reason we are missing the reference 
+      if (SelectedConfigId == null) {
+         return;
+      }
+     
+      // find the account record within the collection
+      WS_Federation_Realm__c tobeDeleted = null;
+      for(WS_Federation_Realm__c c : configs)
+       if (c.Id == SelectedConfigId) {
+          tobeDeleted = c;
+          break;
+       }
+      
+      if (tobeDeleted != null) {
+       Delete tobeDeleted;
+      }
+     
+      //refresh the data
+      LoadConfigs();
+   }    
+  
+    
+    
+   
+}
