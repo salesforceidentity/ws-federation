@@ -7,6 +7,7 @@
             <apex:inputText value="{!realm.Realm__c}" html-placeholder="Realm" required="true" size="100"/><br/><br/>
             <apex:inputText value="{!realm.Action__c}" html-placeholder="Action" required="true" size="100"/><br/><br/>
             <apex:inputText value="{!realm.Issuer__c}" html-placeholder="Issuer" required="true" size="100"/><br/><br/>
+            <apex:inputText value="{!realm.ValidityPeriod__c}" html-placeholder="Validity Period in Minutes" required="true" size="100"/><br/><br/>
             <apex:inputTextarea value="{!realm.EncodedPrivateKey__c}" html-placeholder="EncodedPrivateKey" required="true" cols="100"/><br/><br/>
             <apex:inputTextarea value="{!realm.Certificate__c}" html-placeholder="Certificate" required="true"  cols="100"/><br/><br/>
             <apex:inputTextarea value="{!realm.Modulus__c}" html-placeholder="Modulus" required="true"  cols="100"/><br/><br/>
