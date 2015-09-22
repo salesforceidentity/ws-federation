@@ -5,6 +5,7 @@
         <apex:pageblockTable value="{!configs}" var="c">
             <apex:column value="{!c.Name}" headerValue="Name"/>        
             <apex:column value="{!c.Realm__c}" headerValue="Relam"/>
+            <apex:column value="{!c.Audience__c}" headerValue="Audience"/>
             <apex:column value="{!c.Issuer__c}" headerValue="Issuer"/>
             <apex:column value="{!c.Action__c}" headerValue="Action"/>
             <apex:column value="{!c.ValidityPeriod__c}" headerValue="Validity Period"/>
@@ -18,4 +19,3 @@
     </apex:actionFunction>
 </apex:form>
 </apex:page>
-                                        

@@ -5,6 +5,7 @@
         <apex:form forceSSL="true">
             <apex:inputText value="{!realm.Name}" html-placeholder="Name" required="true" size="100"/><br/><br/>
             <apex:inputText value="{!realm.Realm__c}" html-placeholder="Realm" required="true" size="100"/><br/><br/>
+            <apex:inputText value="{!realm.Audience__c}" html-placeholder="Audience" required="true" size="100"/><br/><br/>
             <apex:inputText value="{!realm.Action__c}" html-placeholder="Action" required="true" size="100"/><br/><br/>
             <apex:inputText value="{!realm.Issuer__c}" html-placeholder="Issuer" required="true" size="100"/><br/><br/>
             <apex:inputText value="{!realm.ValidityPeriod__c}" html-placeholder="Validity Period in Minutes" required="true" size="100"/><br/><br/>

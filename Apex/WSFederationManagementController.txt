@@ -10,7 +10,7 @@ public with sharing class WSFederationManagementController {
     
     
    private void LoadConfigs() {
-       configs =  [select name, Realm__c, Action__c, Issuer__c, ValidityPeriod__c, EncodedPrivateKey__c, Certificate__c, Modulus__c, Exponent__c from WS_Federation_Realm__c];
+       configs =  [select name, Realm__c, Audience__c, Action__c, Issuer__c, ValidityPeriod__c, EncodedPrivateKey__c, Certificate__c, Modulus__c, Exponent__c from WS_Federation_Realm__c];
    }
   
    public void DeleteConfig()

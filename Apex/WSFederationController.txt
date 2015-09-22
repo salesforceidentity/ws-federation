@@ -18,7 +18,7 @@ public class WSFederationController {
             errorMessage = 'User does not have a valid FederationID';
         } else {
             String wtrealm = ApexPages.currentPage().getParameters().get('wtrealm');
-            realm = [select name, Realm__c, Action__c, Issuer__c, ValidityPeriod__c, EncodedPrivateKey__c, Certificate__c, Modulus__c, Exponent__c from WS_Federation_Realm__c where Realm__c = :wtrealm];
+            realm = [select name, Realm__c, Audience__c, Action__c, Issuer__c, ValidityPeriod__c, EncodedPrivateKey__c, Certificate__c, Modulus__c, Exponent__c from WS_Federation_Realm__c where Realm__c = :wtrealm];
             wctx = ApexPages.currentPage().getParameters().get('wctx');
             action = realm.action__c;
         }
@@ -52,7 +52,10 @@ public class WSFederationController {
         String assertionId = EncodingUtil.convertToHex(Crypto.generateDigest('SHA1',  Blob.valueOf('assertion' + random)));
         preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('ASSERTION_ID',assertionId);
         preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('ISSUER',realm.issuer__c);
-        preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('AUDIENCE',realm.realm__c);
+		if (realm.audience__c != null)
+        	preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('AUDIENCE',realm.audience__c);
+		else 
+    		preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('AUDIENCE',realm.realm__c);
         preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('SUBJECT',u.federationidentifier);
         preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('NOT_BEFORE',notBefore);
         preCannonicalizedAssertion = preCannonicalizedAssertion.replaceAll('NOT_ON_OR_AFTER',notOnOrAfter);
